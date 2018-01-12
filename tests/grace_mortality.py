@@ -9,6 +9,7 @@ class GraceMortality(unittest.TestCase):
         gm = applications.GRACE_MORTALITY()
         pretend_patient_1 = np.array([[57, 70, 110, 1.2, 3, 1, 0, 1]], dtype=np.float32)
         pt1 = gm.predict(pretend_patient_1)
+        print(pt1)
         self.assertEqual(pt1, np.array([[0.21693133]], dtype=np.float32))
 
     def test_multiple_patients(self):

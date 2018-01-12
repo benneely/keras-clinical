@@ -7,17 +7,14 @@ from keras import backend as K
 
 
 def GRACE_MORTALITY():
-    """Instantiates the GRACE Mortality model (simple logistic regression architecture). Coefficients found from
-    http://www.outcomes-umassmed.org/grace/files/GRACE_RiskModel_Coefficients.pdf
-
-    # Arguments
-        self: holding.
-
-    # Returns
-        A Keras model instance.
-
-    # Raises
-        ValueError: Example
+    """
+    Grace In-hospital Death Risk.
+    Built from http://www.outcomes-umassmed.org/grace/files/GRACE_RiskModel_Coefficients.pdf
+    :param array: np.array([ age, pulse(per 1 bpm), systolic blood pressure (per 1 mmHG), serum creatinine (mg,dl),
+                    killip class (1, 2, 3, 4), cardiac arrest (presentation?), cardiac enzyme (positive?),
+                    st segment deviation (present?)], dtype=np.float)
+            A question mark (?) indicates a place where a boolean is needed (i.e. 0/1)
+    :return: risk (probability) numpy.float
     """
     img_input = Input(shape=(8,))
     x = Dense(1, activation="sigmoid")(img_input)

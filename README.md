@@ -9,6 +9,10 @@ To implement and expose relavent clinical models in `keras` utilizing the famili
 ### Test Suit
 All tests are located in `keras_clinical.tests`
 
+```
+python -m unittest tests.grace_mortality
+```
+
 ### Installation
 `pip install keras_clinical`
 
